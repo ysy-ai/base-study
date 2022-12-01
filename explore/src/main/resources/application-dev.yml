@@ -1,0 +1,24 @@
+server:
+  port: 8888
+
+spring:
+  # 解决swagger与springboot版本不兼容
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  # redis配置
+  redis:
+    host: 172.25.176.1
+    port: 49153
+    password:
+    database: 0
+    jedis:
+      pool:
+        max-active: 100 # 最大连接数
+        max-idle: 20 # 最大空闲连接数
+        min-idle: 8 # 最小空闲连接数
+        max-wait: 10000 # 阻塞等待时间
+    timeout: 3000 # 连接超时时间
+  cache:
+    redis:
+      time-to-live: -1
