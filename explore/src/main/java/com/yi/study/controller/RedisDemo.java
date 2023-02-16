@@ -32,9 +32,8 @@ public class RedisDemo {
         redisTemplate.opsForList().leftPush("list","2");
         redisTemplate.opsForList().leftPush("list","3");
         List<String> list1 = redisTemplate.opsForList().range("list", 0, -1);
-        list1.forEach(a->{
-            System.out.println(a);
-        });
+        assert list1 != null;
+        list1.forEach(System.out::println);
         return redisTemplate.opsForValue().get("testAdd");
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yi.study.mapper.UserMapper">
+    <select id="getAllUsers" resultType="com.yi.study.entity.User">
+        select * from user
+    </select>
+
+    <!--   User类的id参数是int类型，mysql默认是Integer -->
+    <update id="updateUserAgeById" parameterType="java.lang.Integer">
+        update user set age=age+2 where id=#{id}
+    </update>
+</mapper>

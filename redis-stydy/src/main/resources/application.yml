@@ -1,0 +1,30 @@
+server:
+  port: 8089
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://211.159.225.63:3306/test?serverTimezone=UTC
+    username: root
+    password: 123456
+  #项目启动执行建表语句，classpath指定sql文件的位置
+  sql:
+    init:
+      schema-locations: classpath:sql/init.sql
+      mode: always
+  #显示sql语句
+  jpa:
+    show-sql: true
+
+  redis:
+    host: 211.159.225.63
+    port: 6379
+    password:
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*xml
+  type-aliases-package: com.yi.study.entity
+  # 开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
